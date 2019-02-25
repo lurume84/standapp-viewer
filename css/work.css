@@ -1,0 +1,187 @@
+#right_panel > ul > li > div.worklog
+{
+    position:fixed;
+    left:0;
+    top:2px;
+    width:calc(100% - 200px);
+    height:100vh;
+    display:none;
+}
+
+#right_panel > ul > li > div.worklog > div.pies, #right_panel > ul > li > div.worklog > div.tasks
+{
+    float:left;
+    width:100%;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks
+{
+	overflow-y:auto;
+	width:100%;
+    height:calc(100% - 10px);
+}
+
+#right_panel > ul > li > div.worklog > div.pies
+{
+	display:none;
+	width:50%;
+    height:40%;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li
+{
+	width:100%;
+	height:200px;
+	margin-top:10px;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div
+{
+	float:left;
+	width:30%;
+	height:200px;
+	min-height:200px;
+	padding:5px;
+	margin-left:10px;
+	margin-right:2%;
+	background-color:#2A2A2A;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div li
+{
+	color:#fff;
+	background-color:#2A2A2A;
+	border: none;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div a
+{
+	color:#fff;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div:nth-child(1) > li.user_story
+{
+    border-bottom: 1px dashed #fff;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div:nth-child(1) .estimate
+{
+	display:none;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div:nth-child(1) .priority
+{
+	display:none;
+} 
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div:nth-child(1) span.info
+{
+	margin-left:5px;
+	font-size:14px;
+} 
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div:nth-child(1), #right_panel > ul > li > div.worklog > div.tasks > ul > li > div.info
+{
+	height:auto;
+	padding:0;
+	min-height:50px;
+	max-height:200px;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div.info
+{
+	overflow-y:auto;
+	width:40%;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div.work
+{
+	overflow-y:auto;
+	width:20%;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div.info > div
+{
+	height: 31%;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div.info > div > li
+{
+	width:98%;
+	height:90%;
+	float:left;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div.info > div > li.not_assigned_to_me
+{
+	opacity:0.5;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div.info > div > li .title
+{
+	margin-top:0px;
+	width:50%;
+	font-size:13px;
+	height: 32px;
+	max-height: 32px;
+	min-height: 16px;
+    line-height: 16px;
+	-webkit-line-clamp: 2;
+	opacity:0.8;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div.info > div > li:before
+{
+	content: none;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div.info > div > li .number
+{
+	font-size:14px;
+	line-height: 25px;
+    max-height: 25px;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div.info > div > li .progress
+{
+	position: absolute;
+	top:0;
+	right: 50px;
+	width:30%;
+	height:100%;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div.info > div > div
+{
+	float:left;
+	width:2%;
+	height:100%;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div.info > div > div > div.legend
+{
+	width:100%;
+	height:100%;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div > li.user_story
+{
+	height:50%;
+	max-height:50%;
+	min-height:50%;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div > li.user_story > a.number
+{
+	font-size:16px;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div > li.todo
+{
+	overflow-y:auto;
+}
+
+#right_panel > ul > li > div.worklog > div.tasks > ul > li > div > li.todo > li.task
+{
+	height:25%;
+}

@@ -1,0 +1,99 @@
+.task
+{
+    position: relative;
+    float:left;
+    width:50%;
+    height:50%;
+    padding: 0px 10px 5px 10px;
+    border: 1px solid #c7c7c7;
+    background-color: white;
+    font-size: 12px;
+    list-style-type:none;
+    cursor: pointer;
+}
+
+.task:before
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5px;
+}
+
+.task.dev:before
+{
+  background-color: #FFEB3B;
+}
+
+.task.qa:before
+{
+  background-color: #FF9800;
+}
+
+.task.offsprint_task:before
+{
+  background-color: #8BC34A;
+}
+
+
+.task:hover .number
+{
+  color: #1f5ea8;
+  border-bottom-color: #1f5ea8;
+}
+
+.task.is-resolved .number
+{
+  text-decoration: line-through;
+}
+
+.task .number
+{
+  border-bottom: 1px solid transparent;
+  color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-transition: all 150ms ease-in;
+  transition: all 150ms ease-in;
+  margin-top: 0;
+  margin-right: calc(1em + 10px);
+  margin-bottom: 0;
+}
+
+.task .title
+{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 12px;
+  max-height: 12px;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin-right: calc(1em + 10px);
+  margin-top:-2px;
+}
+
+.task .assignee
+{
+  position: absolute;
+  margin-top:8px;
+  right: 0.5em;
+  height: 32px;
+  width: 32px;
+  overflow: hidden;
+}
+
+.task .progress
+{
+    width:70%;
+    margin-top:5px;
+}
+
+#standup ul
+{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+}

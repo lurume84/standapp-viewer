@@ -1,0 +1,12 @@
+.burndown_container
+{
+	margin: auto;
+	height:100%;
+}
+
+.burndown_container iframe
+{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

@@ -1,0 +1,105 @@
+.user_story
+{
+  position: relative;
+  padding: 1em;
+  border: 1px solid #c7c7c7;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.user_story:before 
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5px;
+  background-color: #03A9F4;
+}
+
+.user_story:hover .number
+{
+  color: #1f5ea8;
+  border-bottom-color: #1f5ea8;
+}
+
+.user_story.is-resolved .number
+{
+  text-decoration: line-through;
+}
+
+.user_story .number, .user_story .title
+{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.user_story .number.completed
+{
+  text-decoration:line-through;
+}
+
+.user_story .title
+{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 16px;     /* fallback */
+  max-height: 32px;      /* fallback */
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  width: 100%;
+  margin-top: 7px;
+  margin-right: calc(1em + 32px + 5px);
+}
+
+.user_story .number
+{
+  border-bottom: 1px solid transparent;
+  color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-transition: all 150ms ease-in;
+  transition: all 150ms ease-in;
+}
+
+.user_story .estimate
+{
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  height: 2.3em;
+  width: 2.3em;
+  padding-right: 0.6em;
+  padding-left: 0.5em;
+  background-color: #dbdbdb;
+  border-radius: 1.15em;
+  font-size: 11px;
+  text-align: center;
+}
+
+.user_story .issuetype
+{
+  margin-top:-2px;
+  margin-right:5px;
+  width:16px;
+  height:16px;
+}
+
+.user_story .priority
+{
+  margin-top:-2px;
+  margin-left:5px;
+  width:16px;
+  height:16px;
+}
+
+.user_story .progress
+{
+	position:absolute;
+	width:25%;
+	right:10px;
+	bottom:10px;
+}

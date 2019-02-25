@@ -1,0 +1,131 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="lib/mdl/material.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/user_story.css">
+        <link rel="stylesheet" href="css/task.css">
+        <link rel="stylesheet" href="css/countdown.css">
+        <link rel="stylesheet" href="css/controls.css">
+        <link rel="stylesheet" href="css/work.css">
+        <link rel="stylesheet" href="css/master.css">
+        <link rel="stylesheet" href="css/fonts.css">
+        <link rel="stylesheet" href="css/clocks.css">
+        <script src="lib/jquery/jquery.min.js"></script>
+        <script src="lib/mdl/material.min.js"></script>
+        <script src="lib/moment.min.js"></script>
+        <script src="lib/Chart.bundle.min.js"></script>
+        <script src="lib/jquery/jquery.kinetic.min.js"></script>
+        <script src="lib/jquery/jquery.easing.js"></script>
+        <script src="lib/jquery/jquery.easypiechart.js"></script>
+        <script src="js/Utils.js"></script>
+        <script src="js/Context.js"></script>
+        <script src="js/views/BoardView.js"></script>
+        <script src="js/views/SprintView.js"></script>
+        <script src="js/views/UserStoryView.js"></script>
+        <script src="js/views/TaskView.js"></script>
+        <script src="js/views/WorkView.js"></script>
+        <script src="js/views/MasterView.js"></script>
+        <script src="js/WorkPieChart.js"></script>
+        <script src="js/interactors/BoardInteractor.js"></script>
+        <script src="js/interactors/SprintInteractor.js"></script>
+        <script src="js/interactors/IssueInteractor.js"></script>
+		<script src="js/interactors/LabInteractor.js"></script>
+        <script src="js/presenters/BoardPresenter.js"></script>
+        <script src="js/presenters/SprintPresenter.js"></script>
+        <script src="js/presenters/IssuePresenter.js"></script>
+        <script src="js/listeners/BaseDecisionListener.js"></script>
+        <title>Stand Up</title>
+    </head>
+    <body>
+        <div id="board">
+            <div id="header">
+                <ul>
+                    <li>
+                        <img id="logo" src="img/logo.png"/>
+                        <select id="boardList"></select>
+                        <select id="sprintList"></select>
+                    </li>
+                    <li><div>To do</div></li>
+                    <li><div>In Progress</div></li>
+                    <li><div>To Test</div></li>
+                    <li><div>Done</div></li>
+                </ul>
+            </div>
+			<div id="loading" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+            <div id="content"></div>
+            <div id="standup">
+				<div id="countdown">
+					<div class="counter">
+						<div class="text"></div>
+						<div class="chart" data-percent="100"></div>
+					</div>
+					<div class="user"></div>
+                </div>
+				<div id="right_panel">
+					<div class="clock-container clocks single local bounce">
+						<article class="clock ios7">
+							<div class="hours-container">
+								<div class="hours angled"></div>
+							</div>
+							<div class="minutes-container">
+								<div class="minutes angled"></div>
+							</div>
+							<div class="seconds-container">
+								<div class="seconds"></div>
+							</div>
+						</article>
+					</div>
+					<div class="date"></div>
+					<ul></ul>
+					<div id="controls_container">
+						<div id="controls">
+							<button id="next_standup" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+								<i class="material-icons">skip_next</i>
+							</button>
+							<button id="pause_standup" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+								<i class="material-icons">pause</i>
+							</button>
+							<button id="stop_standup" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+								<i class="material-icons">stop</i>
+							</button>
+						</div>
+					</div>
+				</div>
+            </div>
+			<button id="start_standup" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+				<i class="material-icons">record_voice_over</i>
+			</button>
+        </div>
+    </body>
+    <script>
+        var g_jira_domain = "";
+        var g_jira_credentials = "user:pass";
+    
+		var g_dev_users = [];
+		var g_qa_users = [];
+        var g_issuetype_map = {user_story: {"9": "us", "10302" : "offsprint_us"}, task: {"12": "qa", "5": "dev", "10303": "offsprint_task"}};
+        var g_status_map = {"10027": "todo", "10008": "progress", "10028": "test", "6": "done", "10035" : "rejected"};
+        var g_estimate_field = "customfield_10003";
+        
+		var g_seconds_per_user = 60;
+		
+		var g_master = {"key": "username_master",
+						"avatarUrls": {
+							"48x48": "img/master.png"
+						},
+						"displayName": "Master"
+					};
+
+        var initializeConfig = initializeConfig || [];
+        initializeConfig.push("board");
+        initializeConfig.push("sprint");
+        initializeConfig.push("issue");
+
+        (function()
+        {
+           new alba.helpers.Initializer();
+        })();
+    </script>
+</html>
