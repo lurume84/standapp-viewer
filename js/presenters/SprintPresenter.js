@@ -3,9 +3,7 @@
     function SprintPresenter(Context)
     {
         this.interactor = Context.getSprintInteractor();
-       
         this.sprintView = Context.getSprintView(this);
-        this.sprintView.init();
     }
 
     Object.defineProperties(SprintPresenter.prototype,

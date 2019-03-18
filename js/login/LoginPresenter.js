@@ -27,12 +27,13 @@
                 credentials.token = btoa(user + ":" + password);
                 
                 self.loginView.load();
+                
+                self.userStoryView.init();
                 self.boardView.init();
                 self.sprintView.init();
                 
                 self.masterView.init();
                 self.workView.init();
-                self.userStoryView.init();
                 self.taskView.init();
                 
                 // this.interactor.login(user, password, new standapp.listeners.BaseDecisionListener(
@@ -66,9 +67,14 @@
                         
                         credentials.token = data.authtoken.authtoken;
 
-                        self.loginView.load(data);
-                        self.boardView.init(data);
-                        self.sprintView.init(data);
+                        self.loginView.load();
+                        self.boardView.init();
+                        self.sprintView.init();
+                        
+                        self.masterView.init();
+                        self.workView.init();
+                        self.userStoryView.init();
+                        self.taskView.init();
                     },
                     function(data)
                     {

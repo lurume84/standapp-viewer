@@ -17,7 +17,7 @@
                 $("#sprintList").change(function ()
                 {
 					$("#content").html("");
-					$('#standup > #right_panel > ul').html("");
+					$("#standup > #right_panel > ul").html("");
 					$("#loading").show();
 					$("#start_standup").hide();
 					
