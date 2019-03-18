@@ -470,4 +470,4 @@
     });
 
     helpers.WorkPieChart = WorkPieChart;
-})(alba.helpers);
+})(standapp.helpers);

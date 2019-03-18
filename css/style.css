@@ -127,3 +127,13 @@ html
 	top:64px;
 	display:none;
 }
+
+#login .progress
+{
+    display: none;
+}
+
+.content .progress
+{
+    width:100%;
+}

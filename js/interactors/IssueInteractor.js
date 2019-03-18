@@ -13,10 +13,10 @@
 				$.ajax
 				({
 					type: "GET",
-					url: g_jira_domain + "/rest/agile/1.0/board/" + boardId + "/sprint/" + sprintId + "/issue?maxResults=1000",
+					url: credentials.domain + "/rest/agile/1.0/board/" + boardId + "/sprint/" + sprintId + "/issue?maxResults=1000",
 					dataType: 'json',
 					beforeSend: function(xhr) { 
-						xhr.setRequestHeader("Authorization", "Basic " + btoa(g_jira_credentials)); 
+						xhr.setRequestHeader("Authorization", "Basic " + credentials.token); 
 					},
 					success: function (json)
 					{
@@ -34,4 +34,4 @@
     });
 
     interactors.IssueInteractor = IssueInteractor;
-})(alba.interactors);
+})(standapp.interactors);

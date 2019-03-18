@@ -3,19 +3,11 @@
     function IssuePresenter(Context)
     {
         this.interactor = Context.getIssueInteractor();
-		this.labInteractor = Context.getLabInteractor();
        
         this.userStoryView = Context.getUserStoryView(this);
-        this.userStoryView.init();
-
         this.taskView = Context.getTaskView(this);
-        this.taskView.init();
-
         this.workView = Context.getWorkView(this);
-        this.workView.init();
-		
 		this.masterView = Context.getMasterView(this);
-        this.masterView.init();
     }
 
     Object.defineProperties(IssuePresenter.prototype,
@@ -25,7 +17,7 @@
             {
                 var self = this;
                     
-                this.interactor.getList(boardId, sprintId, new alba.listeners.BaseDecisionListener(
+                this.interactor.getList(boardId, sprintId, new standapp.listeners.BaseDecisionListener(
                     function(data)
                     {
                         self.userStoryView.load(data);
@@ -43,4 +35,4 @@
     });
 
     presenters.IssuePresenter = IssuePresenter;
-})(alba.presenters);
+})(standapp.presenters);

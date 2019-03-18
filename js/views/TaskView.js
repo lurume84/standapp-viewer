@@ -93,4 +93,4 @@
     });
 
     views.TaskView = TaskView;
-})(alba.views);
+})(standapp.views);

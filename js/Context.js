@@ -1,10 +1,10 @@
-var alba = alba || {};
-alba.helpers = alba.helpers || {};
-alba.presenters = alba.presenters || {};
-alba.views = alba.views || {};
-alba.models = alba.models || {};
-alba.interactors = alba.interactors || {};
-alba.listeners = alba.listeners || {};
+var standapp = standapp || {};
+standapp.helpers = standapp.helpers || {};
+standapp.presenters = standapp.presenters || {};
+standapp.views = standapp.views || {};
+standapp.models = standapp.models || {};
+standapp.interactors = standapp.interactors || {};
+standapp.listeners = standapp.listeners || {};
 
 (function(helpers)
 {
@@ -18,103 +18,115 @@ alba.listeners = alba.listeners || {};
         getBoardPresenter : {
             value: function()
             {
-                return new alba.presenters.BoardPresenter(this);
+                return new standapp.presenters.BoardPresenter(this);
             },
             enumerable: false
         },
         getSprintPresenter : {
             value: function()
             {
-                return new alba.presenters.SprintPresenter(this);
+                return new standapp.presenters.SprintPresenter(this);
             },
             enumerable: false
         },getIssuePresenter : {
             value: function()
             {
-                return new alba.presenters.IssuePresenter(this);
+                return new standapp.presenters.IssuePresenter(this);
             },
             enumerable: false
         },
         getBoardView : {
             value: function(presenter)
             {
-                return new alba.views.BoardView(presenter);
+                return new standapp.views.BoardView(presenter);
             },
             enumerable: false
         },
         getSprintView : {
             value: function(presenter)
             {
-                return new alba.views.SprintView(presenter);
+                return new standapp.views.SprintView(presenter);
             },
             enumerable: false
         },getUserStoryView : {
             value: function(presenter)
             {
-                return new alba.views.UserStoryView(presenter);
+                return new standapp.views.UserStoryView(presenter);
             },
             enumerable: false
         },
         getTaskView : {
             value: function(presenter)
             {
-                return new alba.views.TaskView(presenter);
+                return new standapp.views.TaskView(presenter);
             },
             enumerable: false
         },
         getWorkView : {
             value: function(presenter)
             {
-                return new alba.views.WorkView(presenter);
+                return new standapp.views.WorkView(presenter);
             },
             enumerable: false
         },
 		getMasterView : {
             value: function(presenter)
             {
-                return new alba.views.MasterView(presenter);
+                return new standapp.views.MasterView(presenter);
             },
             enumerable: false
         },
         getBoardInteractor : {
             value: function()
             {
-                return new alba.interactors.BoardInteractor();
+                return new standapp.interactors.BoardInteractor();
             },
             enumerable: false
         },
         getSprintInteractor : {
             value: function()
             {
-                return new alba.interactors.SprintInteractor();
+                return new standapp.interactors.SprintInteractor();
             },
             enumerable: false
         },
         getIssueInteractor : {
             value: function()
             {
-                return new alba.interactors.IssueInteractor();
+                return new standapp.interactors.IssueInteractor();
             },
             enumerable: false
         },
-		getLabInteractor : {
+        getLoginPresenter : {
             value: function()
             {
-                return new alba.interactors.LabInteractor();
+                return new standapp.presenters.LoginPresenter(this);
+            },
+            enumerable: false
+        },
+        getLoginView : {
+            value: function(presenter)
+            {
+                return new standapp.views.LoginView(presenter);
+            },
+            enumerable: false
+        },
+        getLoginInteractor : {
+            value: function()
+            {
+                return new standapp.interactors.LoginInteractor();
             },
             enumerable: false
         }
     });
 
     helpers.Context = Context;
-})(alba.helpers);
+})(standapp.helpers);
 
 (function(helpers)
 {
     var list =  {
-                    board : "getBoardPresenter",
-                    sprint : "getSprintPresenter",
-                    issue : "getIssuePresenter"
+                    login : "getLoginPresenter"
                 };
 
     function Initializer()
@@ -132,4 +144,4 @@ alba.listeners = alba.listeners || {};
     }
 
     helpers.Initializer = Initializer;
-})(alba.helpers);
+})(standapp.helpers);

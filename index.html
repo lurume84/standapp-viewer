@@ -2,7 +2,7 @@
     <head>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" href="lib/mdl/material.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="lib/fontawesome/css/all.min.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/user_story.css">
         <link rel="stylesheet" href="css/task.css">
@@ -19,7 +19,6 @@
         <script src="lib/jquery/jquery.kinetic.min.js"></script>
         <script src="lib/jquery/jquery.easing.js"></script>
         <script src="lib/jquery/jquery.easypiechart.js"></script>
-        <script src="js/Utils.js"></script>
         <script src="js/Context.js"></script>
         <script src="js/views/BoardView.js"></script>
         <script src="js/views/SprintView.js"></script>
@@ -31,14 +30,44 @@
         <script src="js/interactors/BoardInteractor.js"></script>
         <script src="js/interactors/SprintInteractor.js"></script>
         <script src="js/interactors/IssueInteractor.js"></script>
-		<script src="js/interactors/LabInteractor.js"></script>
         <script src="js/presenters/BoardPresenter.js"></script>
         <script src="js/presenters/SprintPresenter.js"></script>
         <script src="js/presenters/IssuePresenter.js"></script>
-        <script src="js/listeners/BaseDecisionListener.js"></script>
+        <script src="js/helpers/Utils.js"></script>
+        <script src="js/helpers/BaseDecisionListener.js"></script>
+        <script src="js/login/LoginView.js"></script>
+        <script src="js/login/LoginInteractor.js"></script>
+        <script src="js/login/LoginPresenter.js"></script>
         <title>Stand Up</title>
     </head>
     <body>
+        <dialog id="login" class="mdl-dialog">
+            <h4 class="mdl-dialog__title"><i class="fas fa-chalkboard-teacher"></i> Stand Up</h4>
+            <form action="#">
+              <div class="mdl-dialog__content">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input user" type="text" id="userInput"/>
+                  <label class="mdl-textfield__label" for="userInput">Username...</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input password" type="password" id="passwordInput"/>
+                    <label class="mdl-textfield__label" for="passwordInput">Password...</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input server" type="text" id="serverInput"/>
+                  <label class="mdl-textfield__label" for="serverInput">Server...</label>
+                </div>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                    <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+                    <span class="mdl-radio__label blink_label">JIRA</span>
+                </label>
+              </div>
+              <div class="mdl-dialog__actions">
+                <button type="submit" class="mdl-button submit">Login</button>
+              </div>
+              <div class="progress mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+            </form>
+        </dialog>
         <div id="board">
             <div id="header">
                 <ul>
@@ -103,6 +132,8 @@
         var g_jira_domain = "";
         var g_jira_credentials = "user:pass";
     
+        var credentials = {domain: "", token: ""};
+    
 		var g_dev_users = [];
 		var g_qa_users = [];
         var g_issuetype_map = {user_story: {"9": "us", "10302" : "offsprint_us"}, task: {"12": "qa", "5": "dev", "10303": "offsprint_task"}};
@@ -119,13 +150,14 @@
 					};
 
         var initializeConfig = initializeConfig || [];
+        initializeConfig.push("login");
         initializeConfig.push("board");
         initializeConfig.push("sprint");
         initializeConfig.push("issue");
 
         (function()
         {
-           new alba.helpers.Initializer();
+           new standapp.helpers.Initializer();
         })();
     </script>
 </html>

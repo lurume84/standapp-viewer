@@ -59,4 +59,4 @@
     });
 
     views.SprintView = SprintView;
-})(alba.views);
+})(standapp.views);

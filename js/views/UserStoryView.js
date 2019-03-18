@@ -102,4 +102,4 @@
     });
 
     views.UserStoryView = UserStoryView;
-})(alba.views);
+})(standapp.views);

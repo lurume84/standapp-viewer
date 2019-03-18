@@ -14,14 +14,11 @@
             {
                 var self = this;
 
-                $(document).ready(function ()
-                {
-					$("#boardList").html("");
+                $("#boardList").html("");
 					
-                    self.presenter.getList();
+                self.presenter.getList();
 
-                    $('#content').kinetic({cursor: "auto"});
-                });
+                $('#content').kinetic({cursor: "auto"});
             },
             enumerable: false
         },
@@ -52,4 +49,4 @@
     });
 
     views.BoardView = BoardView;
-})(alba.views);
+})(standapp.views);

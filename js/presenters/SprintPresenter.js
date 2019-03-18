@@ -15,7 +15,7 @@
             {
                 var self = this;
                     
-                this.interactor.getList(startAt, boardId, new alba.listeners.BaseDecisionListener(
+                this.interactor.getList(startAt, boardId, new standapp.listeners.BaseDecisionListener(
                     function(data)
                     {
                         self.sprintView.load(data);
@@ -35,4 +35,4 @@
     });
 
     presenters.SprintPresenter = SprintPresenter;
-})(alba.presenters);
+})(standapp.presenters);

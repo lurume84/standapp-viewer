@@ -5,7 +5,6 @@
         this.interactor = Context.getBoardInteractor();
        
         this.boardView = Context.getBoardView(this);
-        this.boardView.init();
     }
 
     Object.defineProperties(BoardPresenter.prototype,
@@ -15,7 +14,7 @@
             {
                 var self = this;
                     
-                this.interactor.getList(startAt, new alba.listeners.BaseDecisionListener(
+                this.interactor.getList(startAt, new standapp.listeners.BaseDecisionListener(
                     function(data)
                     {
                         self.boardView.load(data);
@@ -35,4 +34,4 @@
     });
 
     presenters.BoardPresenter = BoardPresenter;
-})(alba.presenters);
+})(standapp.presenters);

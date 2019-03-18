@@ -66,4 +66,4 @@
     });
 
     views.MasterView = MasterView;
-})(alba.views);
+})(standapp.views);
