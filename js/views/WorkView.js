@@ -119,12 +119,12 @@
 
                     $("#right_panel ul.users").children(".completed").children("img").css({width: '32px', height: '32px', "border-radius": "16px"});
                     
-                    $("#right_panel ul.users li:first-child").animate({marginLeft: '-=62px'}, 500, "swing", function()
+                    $("#right_panel ul.users li:first-child").animate({marginLeft: '-=62px'}, 600, "swing", function()
                     {
                         next.addClass("completed");
                     });
                     
-                    next.children("img").animate({width: '48px', height: '48px', "border-radius": "24px"}, 500);
+                    next.children("img").animate({width: '48px', height: '48px', "border-radius": "24px"}, 600);
                     
 					var userId = next.attr("data-user");
 										
