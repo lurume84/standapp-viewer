@@ -2,6 +2,7 @@
 {
 	margin: auto;
 	height:100%;
+    filter: invert(100%);
 }
 
 .burndown_container iframe
