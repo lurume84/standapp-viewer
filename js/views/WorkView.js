@@ -24,7 +24,7 @@
                     $("#countdown").show();
 					$("#right_panel").show();
 					$(".clock-container").show();
-                    $("#right_panel ul.users > li:first-child").css({marginLeft : "142px"});
+                    $("#right_panel ul.users > li:first-child").css({marginLeft : "131px"});
                     
 					$(this).hide();
 					
@@ -117,19 +117,14 @@
                     
                     $("#countdown .chart").removeData("easyPieChart").html("");
 
-                    $("#right_panel ul.users li:first-child").animate({marginLeft: '-=63px'}, 500, "swing", function()
+                    $("#right_panel ul.users").children(".completed").children("img").css({width: '32px', height: '32px', "border-radius": "16px"});
+                    
+                    $("#right_panel ul.users li:first-child").animate({marginLeft: '-=62px'}, 500, "swing", function()
                     {
                         next.addClass("completed");
                     });
                     
-                    var thumb = next.children("img").clone();
-                    
-                    thumb.appendTo($("#countdown .chart"));
-                    
-                    thumb.delay(400).fadeTo( "slow", 1, function()
-                    {
-                        
-                    });
+                    next.children("img").animate({width: '48px', height: '48px', "border-radius": "24px"}, 500);
                     
 					var userId = next.attr("data-user");
 										

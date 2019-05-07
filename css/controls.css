@@ -27,7 +27,7 @@
 #right_panel ul.users
 {
 	position:relative;
-	margin-top:100px;
+	margin-top:92px;
 	margin-left:10px;
 	padding:2px 0 2px 0;
     float:left;
@@ -50,7 +50,7 @@
 
 #right_panel ul.users > li.completed > img
 {
-    opacity:0.3;
+    
 }
 
 #right_panel ul.users > li > img
