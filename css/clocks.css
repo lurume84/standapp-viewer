@@ -190,10 +190,25 @@
   transform-origin: 50% 100%;
 }
 
-.hours.angled {
+.digital-clock .hours.angled
+{
   transform: rotateZ(-40deg);
 }
 
-.minutes.angled {
+.digital-clock .minutes.angled
+{
   transform: rotateZ(40deg);
+}
+
+.digital-clock
+{
+    color: #fff;
+    text-align:center;
+}
+
+#clockNow
+{
+    margin-top:2vh;
+    margin-bottom:2vh;
+    font-size: 3vw;
 }

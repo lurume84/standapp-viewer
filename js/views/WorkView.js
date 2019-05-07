@@ -59,9 +59,7 @@
                     self.stop();
                 });
 				
-				initLocalClocks();
-				moveSecondHands();
-				setUpMinuteHands();
+				showDigitalClock();
 				
 				$('#right_panel > .date').html(moment().format("dddd, D MMMM"));
 				
