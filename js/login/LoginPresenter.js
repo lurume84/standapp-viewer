@@ -24,7 +24,7 @@
                 var self = this;
                 
                 credentials.domain = $("#login .server").val();
-                credentials.token = btoa(user + ":" + password);
+                credentials.token = "Basic " + btoa(user + ":" + password);
                 
                 self.loginView.load();
                 
@@ -60,12 +60,8 @@
                 this.interactor.getToken(new standapp.listeners.BaseDecisionListener(
                     function(data)
                     {
-                        $.each( data.region, function( key, value )
-                        {
-                            credentials.region = key;
-                        });
-                        
-                        credentials.token = data.authtoken.authtoken;
+                        credentials.token = data.token;
+                        credentials.domain = "http://" + data.host + ":" + data.port;
 
                         self.loginView.load();
                         self.boardView.init();
