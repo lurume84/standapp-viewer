@@ -29,7 +29,7 @@
 
                     $("<img/>", {src: user.avatarUrls["48x48"]}).appendTo(element);
 
-					element.appendTo($("#right_panel > ul"));
+					element.appendTo($("#right_panel .users"));
                 }
 
                 return element;

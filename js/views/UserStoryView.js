@@ -17,7 +17,8 @@
                 $("#sprintList").change(function ()
                 {
 					$("#content").html("");
-					$("#standup > #right_panel > ul").html("");
+					$("#standup > #right_panel ul.users").html("");
+					$("#standup > #right_panel .users").html("");
 					$("#loading").show();
 					$("#start_standup").hide();
 					

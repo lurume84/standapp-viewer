@@ -24,6 +24,8 @@
                     $("#countdown").show();
 					$("#right_panel").show();
 					$(".clock-container").show();
+                    $("#right_panel ul.users > li:first-child").css({marginLeft : "142px"});
+                    
 					$(this).hide();
 					
                     self.nextUser();
@@ -63,7 +65,7 @@
 				
 				$('#right_panel > .date').html(moment().format("dddd, D MMMM"));
 				
-				$('#right_panel > ul').kinetic({cursor: "auto"});
+				$('#right_panel ul.users').kinetic({cursor: "auto"});
             },
             enumerable: false
         },
@@ -89,7 +91,7 @@
 				$(".clock-container").hide();
 				$("#start_standup").show();
 
-                $("#right_panel > ul").children().removeClass("completed");
+                $("#right_panel ul.users").children().removeClass("completed");
 
                 $("#countdown .chart").removeData("easyPieChart").html("");
                 $("#countdown .text").html("");
@@ -104,21 +106,31 @@
             {
                 var self = this;
                 
-                var next = $("#right_panel > ul").children(":not(.completed)").first();
+                var next = $("#right_panel ul.users").children(":not(.completed)").first();
 
                 if(next.length)
                 {
 					this.audio.pause();
 					this.audio.currentTime = 0;
 				
-					next.addClass("completed");
-
                     $(".worklog").hide();
                     
                     $("#countdown .chart").removeData("easyPieChart").html("");
-					
-					next.children("img").clone().appendTo($("#countdown .chart"));
 
+                    $("#right_panel ul.users li:first-child").animate({marginLeft: '-=63px'}, 500, "swing", function()
+                    {
+                        next.addClass("completed");
+                    });
+                    
+                    var thumb = next.children("img").clone();
+                    
+                    thumb.appendTo($("#countdown .chart"));
+                    
+                    thumb.delay(400).fadeTo( "slow", 1, function()
+                    {
+                        
+                    });
+                    
 					var userId = next.attr("data-user");
 										
 					var userName = next.attr("data-name");					
@@ -215,11 +227,11 @@
 
 					if(g_dev_users.indexOf(user.key) > -1)
 					{
-						element.prependTo($("#right_panel > ul"));
+						element.prependTo($("#right_panel .users"));
 					}
                     else
 					{
-						element.appendTo($("#right_panel > ul"));
+						element.appendTo($("#right_panel .users"));
 					}
                 }
 
@@ -232,7 +244,7 @@
             {
                 var self = this;
 
-                $("#right_panel > ul").html("");
+                $("#right_panel ul.users").html("");
 
                 $.each( data.issues, function( key, issue )
                 {
