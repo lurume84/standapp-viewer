@@ -41,9 +41,9 @@
             {
 				var user = this.createUser(g_master);
 				
-				var burndown_path = "/plugins/servlet/gadgets/ifr?country=US&lang=en&view=default&up_isConfigured=true&up_rapidViewId=" + boardId + "&up_showRapidViewName=false&" + 
+				var burndown_path = credentials.domain + "/plugins/servlet/gadgets/ifr?country=US&lang=en&view=default&up_isConfigured=true&up_rapidViewId=" + boardId + "&up_showRapidViewName=false&" + 
 									"up_sprintId=auto&up_refresh=15&url=" + 
-									escape(document.location.origin) + 
+									escape(credentials.domain) + 
 									"%2Frest%2Fgadgets%2F1.0%2Fg%2Fcom.pyxis.greenhopper.jira%3Agreenhopper-gadget-sprint-burndown%2Fgadgets%2Fgreenhopper-sprint-burndown.xml";
 
 				var height = Math.min(($("body").width() - $("#right_panel").width()) * 0.50, $("body").height() * 0.9);
