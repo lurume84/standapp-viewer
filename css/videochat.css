@@ -1,0 +1,16 @@
+#localVideo
+{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:2;
+    width: calc(100vw - 200px);
+    display:none;
+}
+
+#localVideo video
+{
+    position:relative;
+    width: 100%;
+    height:auto;
+}

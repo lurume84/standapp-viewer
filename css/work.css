@@ -44,13 +44,13 @@
 	padding:5px;
 	margin-left:10px;
 	margin-right:2%;
-	background-color:#2A2A2A;
+	background-color:rgba(42,42,42, 0.6);
 }
 
 #right_panel ul.users > li > div.worklog > div.tasks > ul > li > div li
 {
 	color:#fff;
-	background-color:#2A2A2A;
+	background-color:rgba(42,42,42, 0.6);
 	border: none;
 }
 
@@ -154,8 +154,8 @@
 #right_panel ul.users > li > div.worklog > div.tasks > ul > li > div.info > div > div
 {
 	float:left;
-	width:2%;
-	height:100%;
+	width:1%;
+	height:90%;
 }
 
 #right_panel ul.users > li > div.worklog > div.tasks > ul > li > div.info > div > div > div.legend

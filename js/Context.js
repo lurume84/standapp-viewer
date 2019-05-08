@@ -117,6 +117,27 @@ standapp.listeners = standapp.listeners || {};
                 return new standapp.interactors.LoginInteractor();
             },
             enumerable: false
+        },
+        getVideoChatPresenter : {
+            value: function()
+            {
+                return new standapp.presenters.VideoChatPresenter(this);
+            },
+            enumerable: false
+        },
+        getVideoChatView : {
+            value: function(presenter)
+            {
+                return new standapp.views.VideoChatView(presenter);
+            },
+            enumerable: false
+        },
+        getVideoChatInteractor : {
+            value: function()
+            {
+                return new standapp.interactors.VideoChatInteractor();
+            },
+            enumerable: false
         }
     });
 

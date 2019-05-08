@@ -25,7 +25,7 @@
 					$("#right_panel").show();
 					$(".clock-container").show();
                     $("#right_panel ul.users > li:first-child").css({marginLeft : "131px"});
-                    
+                    $("#localVideo").show();
 					$(this).hide();
 					
                     self.nextUser();
@@ -90,6 +90,7 @@
 				$("#right_panel").hide();
 				$(".clock-container").hide();
 				$("#start_standup").show();
+                $("#localVideo").hide();
 
                 $("#right_panel ul.users").children().removeClass("completed");
 
