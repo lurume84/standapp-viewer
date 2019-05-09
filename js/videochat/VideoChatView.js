@@ -27,6 +27,12 @@
                 this.webrtc.createRoom("standapp", (err, name) =>
                 {
                     $(".log").html("Room created, waiting for peers...")
+                    
+                    self.webrtc.shareScreen(() =>
+                    {
+                        
+                        
+                    });
                 });
             },
             enumerable: false

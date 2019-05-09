@@ -1,0 +1,27 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <script src="lib/jquery/jquery.min.js"></script>
+        <script src="lib/simplewebrtc-with-adapter.bundle.js"></script>
+        <title>Stand Up</title>
+    </head>
+    <script>
+        $( document ).ready(function() {
+              this.webrtc = new SimpleWebRTC({
+                        localVideoEl: 'localVideo',
+                        remoteVideosEl: 'remoteVideo',
+                        autoRequestMedia: true,
+                    });
+                    
+                    this.webrtc.on('localStream', () => {
+                      
+                    });
+                    
+                    this.webrtc.joinRoom("standapp");
+        });
+        
+    </script>
+    <body>
+        <div id="remoteVideo"></div>
+    </body>
+</html>
