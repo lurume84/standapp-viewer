@@ -15,13 +15,18 @@
                 var self = this;
 
                 this.webrtc = new SimpleWebRTC({
-                  localVideoEl: 'localVideo',
-                  remoteVideosEl: 'remoteVideo',
-                  autoRequestMedia: true,
+                    localVideoEl: 'localVideo',
+                    remoteVideosEl: 'remoteVideo',
+                    autoRequestMedia: true,
                 });
                 
                 this.webrtc.on('localStream', () => {
                   
+                });
+                
+                this.webrtc.createRoom("standapp", (err, name) =>
+                {
+                    $(".log").html("Room created, waiting for peers...")
                 });
             },
             enumerable: false

@@ -16,8 +16,11 @@ function showDigitalClock()
     s = (s < 10) ? "0" + s : s;
     
     var time = h + ":" + m;
+    
     document.getElementById("clockNow").innerText = time;
     document.getElementById("clockNow").textContent = time;
+    document.getElementById("clockNow2").innerText = time;
+    document.getElementById("clockNow2").textContent = time;
     
     setTimeout(showDigitalClock, 1000);
 }

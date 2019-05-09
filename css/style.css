@@ -137,3 +137,45 @@ html
 {
     width:100%;
 }
+
+#footer
+{
+    position:fixed;
+    bottom:0;
+    z-index:1;
+    width:100%;
+    height:50px;
+    background-color:rgba(42,42,42,1);
+}
+
+#clockNow2
+{
+    position:relative;
+    width:100px;
+    height:100%;
+    line-height:50px;
+    float:left;
+}
+
+.divider
+{
+    position:relative;
+    height:40px;
+    width:5px;
+    margin-top:5px;
+    margin-left:10px;
+    border-left:2px solid white;
+    float:left;
+}
+
+.log
+{
+    position:relative;
+    line-height:50px;
+    height:50px;
+    width:500px;
+    margin-left:5px;
+    float:left;
+    color:#fff;
+    font-size: 1vw;
+}

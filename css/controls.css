@@ -1,13 +1,14 @@
 #start_standup
 {
     position:fixed;
-    bottom:20px;
-    right:20px;
-    height:48px;
-    width:48px;
+    bottom:8px;
+    right:10px;
 	margin:auto;
 	z-index:999;
 	display:none;
+    font-weight: 500;
+    
+    font-size: 14px;
 }
 
 #right_panel
@@ -34,6 +35,7 @@
     overflow: hidden;
     white-space: nowrap;
     width:100%;
+    height: 50px;
 }
 
 #right_panel ul.users > li
