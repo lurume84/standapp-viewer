@@ -8,13 +8,24 @@
     <script>
         $( document ).ready(function() {
               this.webrtc = new SimpleWebRTC({
-                        localVideoEl: 'localVideo',
                         remoteVideosEl: 'remoteVideo',
-                        autoRequestMedia: true,
+                        autoRequestMedia: false,
                     });
                     
                     this.webrtc.on('localStream', () => {
                       
+                    });
+                    
+                    this.webrtc.on('joinedRoom', (roomName) => {
+                      $("#log").html("joined<br>");
+                    });
+                    
+                    this.webrtc.on('leftRoom', (roomName) => {
+                      $("#log").html("left<br>");
+                    });
+                    
+                     this.webrtc.on('videoAdded', (videoEl, peer) => {
+                      $("#log").html("added<br>");
                     });
                     
                     this.webrtc.joinRoom("standapp");
@@ -23,5 +34,6 @@
     </script>
     <body>
         <div id="remoteVideo"></div>
+        <div id="log"></div>
     </body>
 </html>
