@@ -1,14 +1,13 @@
 #start_standup
 {
-    position:fixed;
-    bottom:8px;
-    right:10px;
-	margin:auto;
-	z-index:999;
-	display:none;
-    font-weight: 500;
-    
-    font-size: 14px;
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    height: 55px;
+    width: 55px;
+    margin: auto;
+    z-index: 999;
+    display: none;
 }
 
 #right_panel

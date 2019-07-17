@@ -107,6 +107,7 @@ html
     margin-left:1%;
     border:0px;
     outline:0px;
+    font-size: 1vw;
 }
 
 #sprintList
@@ -116,7 +117,7 @@ html
 
 #logo
 {
-    width:17%;
+    margin-top:8px;
     float:left;
 }
 

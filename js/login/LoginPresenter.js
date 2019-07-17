@@ -15,7 +15,7 @@
         this.workView = Context.getIssuePresenter().workView;
 		this.masterView = Context.getIssuePresenter().masterView;
         
-		this.videoChatView = Context.getVideoChatPresenter().videoChatView;
+		//this.videoChatView = Context.getVideoChatPresenter().videoChatView;
     }
 
     Object.defineProperties(LoginPresenter.prototype,
@@ -38,7 +38,7 @@
                 self.workView.init();
                 self.taskView.init();
                 
-                self.videoChatView.init();
+                //self.videoChatView.init();
                 
                 // this.interactor.login(user, password, new standapp.listeners.BaseDecisionListener(
                     // function(data)
