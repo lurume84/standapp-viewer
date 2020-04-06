@@ -20,7 +20,7 @@
 						
 						if(!data.isLast)
                         {
-                            self.getList(boardId, data.values.length);
+                            self.getList(boardId, startAt + data.values.length);
                         }
                     },
                     function(data)
