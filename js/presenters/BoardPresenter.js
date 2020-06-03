@@ -20,7 +20,7 @@
 						
 						if(!data.isLast)
                         {
-                            self.getList(data.values.length);
+                            self.getList(startAt + data.values.length);
                         }
                     },
                     function(data)

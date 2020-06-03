@@ -180,3 +180,94 @@ html
     color:#fff;
     font-size: 1vw;
 }
+
+#toast i
+{
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px;
+}
+
+#toast div
+{
+    margin-left: 30px;
+}
+
+#draggable-window 
+{
+  -webkit-app-region: drag;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: calc(100% - 150px);
+  height: 30px;
+  z-index:999;
+}
+
+#toolbar-window
+{
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 30px;
+  z-index:997;
+}
+
+#toolbar-window > div
+{
+  width: 50px;
+  height: 30px; 
+  text-align:center;
+  float:left;
+}
+
+#toolbar-window > div i
+{
+  margin-top: 8px;
+}
+
+#toolbar-window .close:hover
+{
+  background-color: #CD1A2B;
+  color: #fff;
+}
+
+#toolbar-window .minimize:hover, .maximize:hover 
+{
+  background-color: #535353;
+  color: #fff;
+}
+
+.mdl-snackbar__action
+{
+    color: rgb(255,215,64)!important;
+}
+
+#upgrade
+{
+    display:none;
+    position:fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    padding: 5px;
+    z-index: 999;
+    background-color: #1073D6;
+    cursor: pointer;
+}
+
+#upgrade i
+{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+#upgrade a
+{
+    color: #fff;
+    font-weight: 600;
+}

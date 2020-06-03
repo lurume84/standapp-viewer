@@ -14,6 +14,24 @@ $.ajaxSetup({
     }
 });
 
+$(document).ready(function ()
+{             
+    $("#toolbar-window .close").click(function()
+    {
+       window.close();   
+    });
+    
+    $("#toolbar-window .minimize").click(function()
+    {
+       window.minimize();   
+    });
+    
+    $("#toolbar-window .maximize").click(function()
+    {
+       window.maximize();   
+    });
+});
+
 function round(value, numDec)
 {
     var dec = Math.pow(10, numDec);
