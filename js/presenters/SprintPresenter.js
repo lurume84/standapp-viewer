@@ -13,7 +13,7 @@
             {
                 var self = this;
                     
-                this.interactor.getList(startAt, boardId, new standapp.listeners.BaseDecisionListener(
+                this.interactor.getList(startAt, boardId, new viewer.listeners.BaseDecisionListener(
                     function(data)
                     {
                         self.sprintView.load(data);
@@ -33,4 +33,4 @@
     });
 
     presenters.SprintPresenter = SprintPresenter;
-})(standapp.presenters);
+})(viewer.presenters);

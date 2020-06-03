@@ -17,4 +17,4 @@
     });
 
     interactors.VideoChatInteractor = VideoChatInteractor;
-})(standapp.interactors);
+})(viewer.interactors);

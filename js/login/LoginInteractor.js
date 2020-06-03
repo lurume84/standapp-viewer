@@ -8,16 +8,18 @@
     Object.defineProperties(LoginInteractor.prototype,
     {
         login : {
-            value: function(user, password, listener)
+            value: function(server, user, password, listener)
             {
 				$.ajax
 				({
 					type: "POST",
-					url: "https://prod." + server + "/login",
-					data: {"email": user, "password": password},
+					url: "/data/token.json",
+					data: JSON.stringify({server: server, token: btoa(user + ":" + password)}),
 					dataType: 'json',
-					beforeSend: function(xhr) { 
-						
+                    contentType: 'application/json',
+                    beforeSend: function(xhr)
+                    {
+                        
 					},
 					success: function (json)
 					{
@@ -25,7 +27,10 @@
 					},
 					error: function (jqxhr, textStatus, error)
 					{
-						listener.onError(jqxhr.responseJSON);
+						if(textStatus != "abort")
+                        {
+                            listener.onError(jqxhr.responseJSON);
+                        }
 					}
 				});
             },
@@ -37,22 +42,57 @@
 				$.ajax
 				({
 					type: "GET",
-					url: "token.json",
+					url: "/data/token.json",
 					dataType: 'json',
+                    contentType: 'application/json',
+                    beforeSend: function(xhr)
+                    {
+                        $.xhrPool.push(xhr);
+					},
 					success: function (json)
 					{
 						listener.onSuccess(json);
 					},
 					error: function (jqxhr, textStatus, error)
 					{
-						listener.onError(jqxhr.responseJSON);
+						if(textStatus != "abort")
+                        {
+                            listener.onError(jqxhr.responseJSON);
+                        }
+					}
+				});
+            },
+            enumerable: false
+        },
+        healthCheck : {
+            value: function(listener)
+            {
+				$.ajax
+				({
+					type: "GET",
+                    dataType: 'json',
+                    contentType: 'application/json',
+					url: credentials.server + "/rest/auth/1/session",
+                    beforeSend: function(xhr) { 
+						xhr.setRequestHeader("Authorization", "Basic " + credentials.token);
+                        $.xhrPool.push(xhr);
+					},
+					success: function (json)
+					{
+						listener.onSuccess(json);
+					},
+					error: function (jqxhr, textStatus, error)
+					{
+						if(textStatus != "abort")
+                        {
+                            listener.onError(jqxhr.responseJSON);
+                        }
 					}
 				});
             },
             enumerable: false
         }
-        
     });
 
     interactors.LoginInteractor = LoginInteractor;
-})(standapp.interactors);
+})(viewer.interactors);

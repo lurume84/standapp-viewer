@@ -129,10 +129,7 @@
         <div id="localVideo"></div>
     </body>
     <script>
-        var g_jira_domain = "";
-        var g_jira_credentials = "user:pass";
-    
-        var credentials = {domain: "", token: ""};
+		var credentials = {server: "", user: "", password: ""};
     
 		var g_dev_users = [];
 		var g_qa_users = [];
@@ -157,7 +154,7 @@
 
         (function()
         {
-           new standapp.helpers.Initializer();
+           new viewer.helpers.Initializer();
         })();
     </script>
 </html>

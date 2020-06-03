@@ -13,7 +13,7 @@
 				$.ajax
 				({
 					type: "GET",
-					url: credentials.domain + "/rest/agile/1.0/board?maxResults=1000&startAt=" + startAt,
+					url: credentials.server + "/rest/agile/1.0/board?maxResults=1000&startAt=" + startAt,
 					dataType: 'json',
 					beforeSend: function(xhr) { 
 						xhr.setRequestHeader("Authorization", credentials.token); 
@@ -34,4 +34,4 @@
     });
 
     interactors.BoardInteractor = BoardInteractor;
-})(standapp.interactors);
+})(viewer.interactors);

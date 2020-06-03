@@ -59,4 +59,4 @@
     });
 
     views.SprintView = SprintView;
-})(standapp.views);
+})(viewer.views);

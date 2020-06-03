@@ -103,4 +103,4 @@
     });
 
     views.UserStoryView = UserStoryView;
-})(standapp.views);
+})(viewer.views);

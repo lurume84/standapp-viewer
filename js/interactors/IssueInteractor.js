@@ -13,7 +13,7 @@
 				$.ajax
 				({
 					type: "GET",
-					url: credentials.domain + "/rest/agile/1.0/board/" + boardId + "/sprint/" + sprintId + "/issue?maxResults=1000",
+					url: credentials.server + "/rest/agile/1.0/board/" + boardId + "/sprint/" + sprintId + "/issue?maxResults=1000",
 					dataType: 'json',
 					beforeSend: function(xhr) { 
 						xhr.setRequestHeader("Authorization", credentials.token); 
@@ -34,4 +34,4 @@
     });
 
     interactors.IssueInteractor = IssueInteractor;
-})(standapp.interactors);
+})(viewer.interactors);

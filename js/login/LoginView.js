@@ -21,7 +21,7 @@
                     {
                         $("#login .progress").show();
                         $("#login .submit").hide();
-                        self.presenter.login($("#login .user").val(), $("#login .password").val(), $("#login .server").val());
+                        self.presenter.login($("#login .server").val(), $("#login .user").val(), $("#login .password").val());
                         evt.preventDefault();
                     });
                     
@@ -62,4 +62,4 @@
     });
 
     views.LoginView = LoginView;
-})(standapp.views);
+})(viewer.views);

@@ -17,7 +17,7 @@
             {
                 var self = this;
                     
-                this.interactor.getList(boardId, sprintId, new standapp.listeners.BaseDecisionListener(
+                this.interactor.getList(boardId, sprintId, new viewer.listeners.BaseDecisionListener(
                     function(data)
                     {
                         self.userStoryView.load(data);
@@ -35,4 +35,4 @@
     });
 
     presenters.IssuePresenter = IssuePresenter;
-})(standapp.presenters);
+})(viewer.presenters);

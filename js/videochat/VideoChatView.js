@@ -67,4 +67,4 @@
     });
 
     views.VideoChatView = VideoChatView;
-})(standapp.views);
+})(viewer.views);

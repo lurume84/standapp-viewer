@@ -93,4 +93,4 @@
     });
 
     views.TaskView = TaskView;
-})(standapp.views);
+})(viewer.views);

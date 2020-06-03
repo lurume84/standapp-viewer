@@ -49,4 +49,4 @@
     });
 
     views.BoardView = BoardView;
-})(standapp.views);
+})(viewer.views);

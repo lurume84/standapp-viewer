@@ -21,4 +21,4 @@
     });
 
     presenters.VideoChatPresenter = VideoChatPresenter;
-})(standapp.presenters);
+})(viewer.presenters);

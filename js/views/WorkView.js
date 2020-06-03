@@ -216,7 +216,7 @@
 					
                     var worklog = $("<div/>", {class: "worklog"}).appendTo(element);
 
-                    var pie = new standapp.helpers.WorkPieChart(user.key);
+                    var pie = new viewer.helpers.WorkPieChart(user.key);
                     pie.init(worklog);
 
                     $("<img/>", {src: user.avatarUrls["48x48"]}).appendTo(element);
@@ -284,4 +284,4 @@
     });
 
     views.WorkView = WorkView;
-})(standapp.views);
+})(viewer.views);

@@ -13,4 +13,4 @@
     });
 
     listeners.BaseDecisionListener = BaseDecisionListener;
-})(standapp.listeners);
+})(viewer.listeners);

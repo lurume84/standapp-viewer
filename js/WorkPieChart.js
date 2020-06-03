@@ -470,4 +470,4 @@
     });
 
     helpers.WorkPieChart = WorkPieChart;
-})(standapp.helpers);
+})(viewer.helpers);
