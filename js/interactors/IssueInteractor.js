@@ -16,7 +16,7 @@
 					url: credentials.server + "/rest/agile/1.0/board/" + boardId + "/sprint/" + sprintId + "/issue?maxResults=1000",
 					dataType: 'json',
 					beforeSend: function(xhr) { 
-						xhr.setRequestHeader("Authorization", credentials.token); 
+						xhr.setRequestHeader("Authorization", "Basic " + credentials.token); 
 					},
 					success: function (json)
 					{

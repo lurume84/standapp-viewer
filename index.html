@@ -152,8 +152,21 @@
     
 		var g_dev_users = [];
 		var g_qa_users = [];
-        var g_issuetype_map = {user_story: {"9": "us", "10302" : "offsprint_us"}, task: {"12": "qa", "5": "dev", "10303": "offsprint_task"}};
-        var g_status_map = {"10027": "todo", "10008": "progress", "10028": "test", "6": "done", "10035" : "rejected"};
+        var g_issuetype_map = {user_story: {"9": "us", "10802": "us", "11405" : "offsprint_us"}, task: {"12": "qa", "5": "dev", "10400": "dev", "11408": "offsprint_task"}};
+        var g_status_map = {"10048": "todo", 
+							"10701": "todo", 
+							"10709": "todo", 
+							"10009": "todo", 
+							"10703": "progress", 
+							"10710": "progress", 
+							"10706": "test", 
+							"10712": "test", 
+							"10713": "test", 
+							"10043": "test", 
+							"10702": "done", 
+							"10706": "done", 
+							"10720" : "rejected",
+							"10035" : "rejected"};
         var g_estimate_field = "customfield_10003";
         
 		var g_seconds_per_user = 60;

@@ -208,20 +208,20 @@
         createUser : {
             value: function(user)
             {
-                var element = $("#" + user.key + "_user");
+                var element = $("#" + user.accountId + "_user");
 
                 if(element.length == 0)
                 {
-                    element = $("<li/>", {id: user.key + "_user", "data-name" : user.displayName, "data-user": user.key});
+                    element = $("<li/>", {id: user.accountId + "_user", "data-name" : user.displayName, "data-user": user.accountId});
 					
                     var worklog = $("<div/>", {class: "worklog"}).appendTo(element);
 
-                    var pie = new viewer.helpers.WorkPieChart(user.key);
+                    var pie = new viewer.helpers.WorkPieChart(user.accountId);
                     pie.init(worklog);
 
                     $("<img/>", {src: user.avatarUrls["48x48"]}).appendTo(element);
 
-					if(g_dev_users.indexOf(user.key) > -1)
+					if(g_dev_users.indexOf(user.accountId) > -1)
 					{
 						element.prependTo($("#right_panel .users"));
 					}

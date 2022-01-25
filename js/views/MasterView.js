@@ -19,11 +19,11 @@
         createUser : {
             value: function(user)
             {
-                var element = $("#" + user.key + "_user");
+                var element = $("#" + user.accountId + "_user");
 
                 if(element.length == 0)
                 {
-                    element = $("<li/>", {id: user.key + "_user", "data-name" : user.displayName});
+                    element = $("<li/>", {id: user.accountId + "_user", "data-name" : user.displayName});
 					
                     $("<div/>", {class: "worklog"}).appendTo(element);
 
