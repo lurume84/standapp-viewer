@@ -24,7 +24,7 @@
                 {
                     var issueType = g_issuetype_map.task[issue.fields.issuetype.id];
                    
-                    if(issueType != undefined && issue.fields.parent != undefined)
+                    if(issueType != undefined && issue.fields.issuetype.subtask)
                     {
                        var parent = $("#" + issue.fields.parent.key);
 

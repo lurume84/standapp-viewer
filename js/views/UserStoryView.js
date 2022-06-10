@@ -34,12 +34,11 @@
                 var completed_user_stories = [];
 
                 $.each( data.issues, function( key, issue )
-                {
-                    var issueType = g_issuetype_map.user_story[issue.fields.issuetype.id];
-                    var status = g_status_map[issue.fields.status.id];
-
-                    if(issueType != undefined)
+                {	
+                    if(!issue.fields.issuetype.subtask)
                     {
+						var status = g_status_map[issue.fields.status.id];
+						
                         var estimate = "";
                         if(issue.fields[g_estimate_field])
                         {
@@ -54,10 +53,12 @@
 
                         var us = $("<ul/>", {id: issue.key});
                         
+						var priority = issue.fields.priority ? issue.fields.priority.iconUrl : "";
+						
 						var user_story = $("<li/>", {class: "user_story"}).append("<img class=\"issuetype\" src=\"" + issue.fields.issuetype.iconUrl + "\"/>" +
                                         estimate +
                                         "<a class=\"number " + numberClass +"\" href=\"#\">" + issue.key +"</a>" +
-                                        "<img class=\"priority\" src=\"" + issue.fields.priority.iconUrl + "\"/>" +
+                                        "<img class=\"priority\" src=\"" + priority + "\"/>" +
                                         "<p class=\"title\">" + issue.fields.summary + "</p>").appendTo(us);
 						
 

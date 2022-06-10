@@ -270,7 +270,7 @@
 				{
 					var element = this.issues[key];
 					
-					if((element.issue.fields.parent != undefined && element.issue.fields.parent.key == parent && (element.dates[today.format('YYYY-MM-DD')] != undefined || element.dates[lastDay.format('YYYY-MM-DD')] != undefined )))
+					if((element.issue.fields.issuetype.subtask && element.issue.fields.parent.key == parent && (element.dates[today.format('YYYY-MM-DD')] != undefined || element.dates[lastDay.format('YYYY-MM-DD')] != undefined )))
 					{
 						data.labels.push(element.issue.key);
 						data.datasets[0].backgroundColor.push(this.colors[i]);
@@ -343,7 +343,7 @@
 				{
 					var element = this.issues[key];
 					
-					if((element.issue.fields.parent != undefined && element.issue.fields.parent.key == parent && 
+					if((element.issue.fields.issuetype.subtask && element.issue.fields.parent.key == parent && 
 						(element.dates[today.format('YYYY-MM-DD')] != undefined || element.dates[lastDay.format('YYYY-MM-DD')] != undefined )))
 					{
 						var base = $("#" + element.issue.key).clone();
@@ -393,7 +393,7 @@
 					
 					if((element.dates[today.format('YYYY-MM-DD')] != undefined || element.dates[lastDay.format('YYYY-MM-DD')] != undefined ))
 					{
-						if(element.issue.fields.parent != undefined)
+						if(element.issue.fields.issuetype.subtask)
 						{
 							var us = container.find("li." + element.issue.fields.parent.key);
 							
