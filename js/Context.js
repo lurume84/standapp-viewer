@@ -118,24 +118,31 @@ viewer.listeners = viewer.listeners || {};
             },
             enumerable: false
         },
-        getVideoChatPresenter : {
+        getBurndownPresenter : {
             value: function()
             {
-                return new viewer.presenters.VideoChatPresenter(this);
+                return new viewer.presenters.BurndownPresenter(this);
             },
             enumerable: false
         },
-        getVideoChatView : {
+        getBurndownView : {
             value: function(presenter)
             {
-                return new viewer.views.VideoChatView(presenter);
+                return new viewer.views.BurndownView(presenter);
             },
             enumerable: false
         },
-        getVideoChatInteractor : {
+        getBurndownInteractor : {
             value: function()
             {
-                return new viewer.interactors.VideoChatInteractor();
+                return new viewer.interactors.BurndownInteractor();
+            },
+            enumerable: false
+        },
+        getSettingsInteractor : {
+            value: function()
+            {
+                return new viewer.interactors.SettingsInteractor();
             },
             enumerable: false
         }
@@ -147,7 +154,9 @@ viewer.listeners = viewer.listeners || {};
 (function(helpers)
 {
     var list =  {
-                    login : "getLoginPresenter"
+                    login : "getLoginPresenter",
+                    board : "getBoardPresenter",
+					burndown : "getBurndownPresenter",
                 };
 
     function Initializer()

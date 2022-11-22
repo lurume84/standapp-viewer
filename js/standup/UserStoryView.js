@@ -14,6 +14,11 @@
             {
                 var self = this;
 
+				$(document).on("board", function (evt, data)
+                {
+                    self.board = data;
+                });
+
                 $("#sprintList").change(function ()
                 {
 					$("#content").html("");
@@ -22,7 +27,7 @@
 					$("#loading").show();
 					$("#start_standup").hide();
 					
-                    self.presenter.getList($("#boardList").val(), $(this).val());
+                    self.presenter.getList(self.board.id, $(this).val());
                 });
             },
             enumerable: false

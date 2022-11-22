@@ -119,6 +119,7 @@ html
 {
     margin-top:8px;
     float:left;
+	max-width: 40px;
 }
 
 #loading

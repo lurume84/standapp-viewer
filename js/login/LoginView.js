@@ -46,6 +46,8 @@
                 
                 $(".avatar-dropdown > span").html(userName);
                 $("#login")[0].close();
+				
+				$(document).trigger( "login", data);
             },
             enumerable: false
         },

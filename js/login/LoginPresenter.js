@@ -6,8 +6,6 @@
        
         this.loginView = Context.getLoginView(this);
         this.loginView.init();
-
-        this.boardView = Context.getBoardPresenter().boardView;
         this.sprintView = Context.getSprintPresenter().sprintView;
         
         this.userStoryView = Context.getIssuePresenter().userStoryView;
@@ -48,7 +46,6 @@
                         self.healthCheck(data,  function()
 												{
 													self.loginView.load();
-													self.boardView.init();
 													self.sprintView.init();
 													
 													self.masterView.init();

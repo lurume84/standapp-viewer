@@ -12,7 +12,8 @@
         <link rel="stylesheet" href="css/master.css">
         <link rel="stylesheet" href="css/fonts.css">
         <link rel="stylesheet" href="css/clocks.css">
-        <link rel="stylesheet" href="css/videochat.css">
+        <link rel="stylesheet" href="css/burndown.css">
+        <link rel="stylesheet" href="css/board.css">
         <script src="lib/jquery/jquery.min.js"></script>
         <script src="lib/mdl/material.min.js"></script>
         <script src="lib/moment.min.js"></script>
@@ -22,30 +23,34 @@
         <script src="lib/jquery/jquery.easypiechart.js"></script>
         <script src="lib/simplewebrtc-with-adapter.bundle.js"></script>
         <script src="js/Context.js"></script>
-        <script src="js/views/BoardView.js"></script>
-        <script src="js/views/SprintView.js"></script>
-        <script src="js/views/UserStoryView.js"></script>
-        <script src="js/views/TaskView.js"></script>
-        <script src="js/views/WorkView.js"></script>
-        <script src="js/views/MasterView.js"></script>
-        <script src="js/WorkPieChart.js"></script>
-        <script src="js/interactors/BoardInteractor.js"></script>
-        <script src="js/interactors/SprintInteractor.js"></script>
-        <script src="js/interactors/IssueInteractor.js"></script>
-        <script src="js/presenters/BoardPresenter.js"></script>
-        <script src="js/presenters/SprintPresenter.js"></script>
-        <script src="js/presenters/IssuePresenter.js"></script>
-        <script src="js/helpers/Utils.js"></script>
-        <script src="js/helpers/BaseDecisionListener.js"></script>
+		<script src="js/WorkPieChart.js"></script>
+		<script src="js/helpers/Utils.js"></script>
+		<script src="js/helpers/BaseDecisionListener.js"></script>
+		<script src="js/settings/SettingsInteractor.js"></script>
+        <script src="js/board/BoardView.js"></script>
+		<script src="js/board/BoardInteractor.js"></script>
+		<script src="js/board/BoardPresenter.js"></script>
+		
+        <script src="js/standup/UserStoryView.js"></script>
+        <script src="js/standup/TaskView.js"></script>
+        <script src="js/standup/WorkView.js"></script>
+		<script src="js/standup/IssueInteractor.js"></script>
+        <script src="js/standup/StandUpPresenter.js"></script>
+		
+		<script src="js/sprint/SprintView.js"></script>
+        <script src="js/sprint/SprintInteractor.js"></script>
+		<script src="js/sprint/SprintPresenter.js"></script>
         <script src="js/login/LoginView.js"></script>
         <script src="js/login/LoginInteractor.js"></script>
         <script src="js/login/LoginPresenter.js"></script>
-        <script src="js/videochat/VideoChatView.js"></script>
-        <script src="js/videochat/VideoChatInteractor.js"></script>
-        <script src="js/videochat/VideoChatPresenter.js"></script>
+		<script src="js/burndown/MasterView.js"></script>
+		<script src="js/burndown/BurndownView.js"></script>
+        <script src="js/burndown/BurndownInteractor.js"></script>
+        <script src="js/burndown/BurndownPresenter.js"></script>
         <title>Stand Up</title>
     </head>
     <body>
+		<div class="modal-dialog"></div>
         <dialog id="login" class="mdl-dialog">
             <h4 class="mdl-dialog__title"><i class="fas fa-chalkboard-teacher"></i> Stand Up</h4>
             <form action="#">
@@ -77,8 +82,7 @@
             <div id="header">
                 <ul>
                     <li>
-                        <img id="logo" src="img/logo.png"/>
-                        <select id="boardList"></select>
+                        <img id="logo"/>
                         <select id="sprintList"></select>
                     </li>
                     <li><div>To do</div></li>
@@ -183,6 +187,7 @@
         initializeConfig.push("board");
         initializeConfig.push("sprint");
         initializeConfig.push("issue");
+        initializeConfig.push("burndown");
 
         (function()
         {

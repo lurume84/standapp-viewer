@@ -16,11 +16,11 @@
 
 				$("#sprintList").html("");
 				
-                $("#boardList").change(function ()
+                $(document).on("board", function (evt, data)
                 {
-					$("#sprintList").html("");
+                    $("#sprintList").html("");
 					
-                    self.presenter.getList($(this).val());
+                    self.presenter.getList(data.id);
                 });
             },
             enumerable: false
