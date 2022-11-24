@@ -112,14 +112,14 @@ html
 
 #sprintList
 {
-    width:32%;
+    width: calc(100% - 50px)
 }
 
 #logo
 {
     margin-top:8px;
     float:left;
-	max-width: 40px;
+	max-height: 32px;
 }
 
 #loading

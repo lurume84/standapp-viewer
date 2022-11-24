@@ -221,14 +221,7 @@
 
                     $("<img/>", {src: user.avatarUrls["48x48"]}).appendTo(element);
 
-					if(g_dev_users.indexOf(user.accountId) > -1)
-					{
-						element.prependTo($("#right_panel .users"));
-					}
-                    else
-					{
-						element.appendTo($("#right_panel .users"));
-					}
+					element.appendTo($("#right_panel .users"));
                 }
 
                 return element;

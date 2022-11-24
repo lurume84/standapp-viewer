@@ -415,23 +415,9 @@
 									
 									clone = base.children("li.todo").clone().kinetic({cursor: "auto"});
 									
-									var usertype = "";
-									
-									if(g_dev_users.indexOf(this.user) > -1)
-									{
-										clone.children("li.qa").remove();
-										usertype = "dev";
-									}
-									
-									if(g_qa_users.indexOf(this.user) > -1)
-									{
-										clone.children("li.dev").remove();
-										usertype = "qa";
-									}
-									
 									if(clone.children("li").length == 0)
 									{
-										clone.append("<span class='info'>No pending " + usertype + " work</span>")
+										clone.append("<span class='info'>No pending work</span>")
 									}
 									
 									clone.appendTo(usCard);

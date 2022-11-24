@@ -22,9 +22,7 @@
             {
                 $.each( data.issues, function( key, issue )
                 {
-                    var issueType = g_issuetype_map.task[issue.fields.issuetype.id];
-                   
-                    if(issueType != undefined && issue.fields.issuetype.subtask)
+                    if( issue.fields.issuetype.subtask)
                     {
                        var parent = $("#" + issue.fields.parent.key);
 
@@ -43,7 +41,7 @@
                             var task = $("<li/>",
                             {
                                 id: issue.key, 
-                                class: "task " + issueType,
+                                class: "task ",
                                 html:   assignee +
                                         "<a class='number'>" + issue.key + "</a>" +
                                         "<div class=\"mdl-tooltip\" data-mdl-for=\"" + issue.key + "_link\">" + issue.fields.summary + "</div>" +
