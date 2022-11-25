@@ -33,6 +33,23 @@
             },
             enumerable: false
         },
+		getIssueStatus : {
+            value: function(board)
+            {
+                var self = this;
+                    
+                this.interactor.getIssueStatus(new viewer.listeners.BaseDecisionListener(
+                    function(data)
+                    {
+                        self.view.loadIssueStatus(board, data);
+                    },
+                    function(data)
+                    {
+                        self.view.showError(data);
+                    }));
+            },
+            enumerable: false
+        },
         getSettings : {
             value: function()
             {
@@ -51,7 +68,7 @@
             enumerable: false
         },
         setSetting : {
-            value: function(setting, value)
+            value: function(setting, value, callback)
             {
                 var self = this;
                 this.interactorSettings.load(new viewer.listeners.BaseDecisionListener(
@@ -62,7 +79,7 @@
                         self.interactorSettings.save(data, new viewer.listeners.BaseDecisionListener(
                         function()
                         {
-                            self.view.onSaveSetting(data);
+                            callback(data);
                         },
                         function(data)
                         {

@@ -18,7 +18,7 @@
         },
 
         load : {
-            value: function(data)
+            value: function(board, data)
             {
                 $.each( data.issues, function( key, issue )
                 {
@@ -52,9 +52,9 @@
                                 this.MaterialProgress.setProgress(issue.fields.progress.percent);
                             }).appendTo(task);
 
-                            var status = g_status_map[issue.fields.status.id];
-
-                            if((status == "test" && issueType == "dev") || status == "rejected")
+							var status = getStatus(board, issue.fields.status.id);
+							
+                            if(status == "totest" /*&& issueType == "dev"*/)
                             {
                                 parent.children(".done").append(task);
                             }

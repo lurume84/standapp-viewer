@@ -184,3 +184,22 @@ function base64Encode(str)
     }
     return out;
 }
+
+function getStatus(board, status_id)
+{
+	var columns = ["todo", "progress", "totest", "done"];
+
+	var status;
+	
+	$.each(columns, function(i)
+	{
+		var element = board.status_map[this];
+		if(element != undefined && element.find(element => element == status_id) != undefined)
+		{
+			status = this;
+			return false;
+		}
+	});
+	
+	return status;
+}

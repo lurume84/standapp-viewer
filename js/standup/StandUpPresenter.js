@@ -13,17 +13,17 @@
     Object.defineProperties(IssuePresenter.prototype,
     {
         getList : {
-            value: function(boardId, sprintId)
+            value: function(board, sprintId)
             {
                 var self = this;
                     
-                this.interactor.getList(boardId, sprintId, new viewer.listeners.BaseDecisionListener(
+                this.interactor.getList(board.id, sprintId, new viewer.listeners.BaseDecisionListener(
                     function(data)
                     {
-                        self.userStoryView.load(data);
-                        self.taskView.load(data);
-                        self.workView.load(boardId, data);
-                        self.masterView.load(boardId);
+                        self.userStoryView.load(board, data);
+                        self.taskView.load(board, data);
+                        self.workView.load(board, data);
+                        self.masterView.load(board);
                     },
                     function(data)
                     {

@@ -27,14 +27,14 @@
 					$("#loading").show();
 					$("#start_standup").hide();
 					
-                    self.presenter.getList(self.board.id, $(this).val());
+                    self.presenter.getList(self.board, $(this).val());
                 });
             },
             enumerable: false
         },
 
         load : {
-            value: function(data)
+            value: function(board, data)
             {
                 var completed_user_stories = [];
 
@@ -42,8 +42,6 @@
                 {	
                     if(!issue.fields.issuetype.subtask)
                     {
-						var status = g_status_map[issue.fields.status.id];
-						
                         var estimate = "";
                         if(issue.fields[g_estimate_field])
                         {
@@ -51,6 +49,9 @@
                         }
 
                         var numberClass = "";
+						
+						var status = getStatus(board, issue.fields.status.id);
+						
                         if(status == "done")
                         {
                             numberClass = "completed";

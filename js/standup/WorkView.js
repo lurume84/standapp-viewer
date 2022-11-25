@@ -229,7 +229,7 @@
             enumerable: false
         },
         load : {
-            value: function(boardId, data)
+            value: function(board, data)
             {
                 var self = this;
 
@@ -241,7 +241,7 @@
 					{
                         var user = self.createUser(issue.fields.assignee);
 						
-						var status = g_status_map[issue.fields.status.id];
+						var status = getStatus(board, issue.fields.status.id);
 						
 						if(!issue.fields.worklog.worklogs.length)
 						{
