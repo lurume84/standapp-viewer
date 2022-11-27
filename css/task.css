@@ -4,7 +4,6 @@
     float:left;
     width:50%;
     height:50%;
-    padding: 0px 10px 5px 10px;
     border: 1px solid #c7c7c7;
     background-color: white;
     font-size: 12px;
@@ -71,24 +70,32 @@
   max-height: 12px;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  margin-right: calc(1em + 10px);
-  margin-top:-2px;
+  margin-top:2px;
+  margin-left:3px;
 }
 
 .task .assignee
 {
   position: absolute;
-  margin-top:8px;
-  right: 0.5em;
-  height: 32px;
-  width: 32px;
+  margin-top:0px;
+  right: 0px;
+  height: 24px;
+  width: 24px;
   overflow: hidden;
+}
+
+.task .issuetypeicon
+{
+	height: 16px;
+	margin-top:-3px;
+	margin-right:3px;
+	margin-left:3px;
 }
 
 .task .progress
 {
-    width:70%;
-    margin-top:5px;
+    width:100%;
+    margin-top:8px;
 }
 
 #standup ul

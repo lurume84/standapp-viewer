@@ -81,7 +81,7 @@
 					type: "GET",
                     dataType: 'json',
                     contentType: 'application/json',
-					url: credentials.server + "rest/api/2/user/assignable/search?issueKey=" + issue,
+					url: credentials.server + "/rest/api/2/user/assignable/search?issueKey=" + issue,
                     beforeSend: function(xhr) { 
 						xhr.setRequestHeader("Authorization", "Basic " + credentials.token);
                         $.xhrPool.push(xhr);
@@ -94,7 +94,7 @@
 					{
 						if(textStatus != "abort")
                         {
-                            listener.onError(jqxhr.responseJSON);
+                            listener.onError(jqxhr);
                         }
 					}
 				});

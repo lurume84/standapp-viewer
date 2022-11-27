@@ -1,60 +1,72 @@
-.uncommited-table-container .assigned
+.burndown_container
 {
-	width: 780px;
+	background-color: 000;
+}
+
+.burndown_container .assigned
+{
+	width: 100%;
 	margin-left: 30px;
 }
 
-.uncommited-table-container .assigned div
+.burndown_container .chart
+{
+	padding:20px;
+}
+
+.burndown_container .assigned div
 {
 	text-align: center;
 }
 
-.uncommited-table-container .assigned div img
+.burndown_container .assigned div img
 {
 	width: 32px;
 	height: 32px;
 	border-radius:50%;
 }
 
-.uncommited-table-container .estimate_resources table
+.burndown_container .estimate_resources table
 {
-	max-width: 780px;
-	width: 780px;
+	max-width: 100%;
+	width: calc(100% - 40px);
 	border-collapse: collapse;
 }
 
-.uncommited-table-container .estimate_resources table tr
+.burndown_container .estimate_resources table tr
 {
 }
 
-.uncommited-table-container .estimate_resources table td
+.burndown_container .estimate_resources table td
 {
 	height: 40px;
+	text-align: -webkit-center;
 }
 
-.uncommited-table-container .estimate_resources table td img
+.burndown_container .estimate_resources table td img
 {
 	
 }
 
-.uncommited-table-container .estimate_resources .iconMenu
+.burndown_container .estimate_resources .iconMenu
 {
 	padding-left:5px;
+	color:#fff;
 }
 
-.uncommited-table-container .estimate_resources .assigned div
+.burndown_container .estimate_resources .assigned div
 {
 	width: 32px;
 	height:32px;
 	overflow:hidden;
 }
 
-.uncommited-table-container .estimate_resources .assigned div.full
+.burndown_container .estimate_resources .assigned div.full
 {
 	
 }
 
-.uncommited-table-container .estimate_resources table div.mid:before
+.burndown_container .estimate_resources table div.mid:before
 {
 	content: url("/img/part.png");
     position: absolute;
@@ -64,12 +76,12 @@
     margin-top: 18;
 }
 
-.uncommited-table-container .estimate_resources table div
+.burndown_container .estimate_resources table div
 {
 	margin-left: 5px;
 }
 
-.uncommited-table-container .estimate_resources table div.no
+.burndown_container .estimate_resources table div.no
 {
 	opacity:0.1;
 }

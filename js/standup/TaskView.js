@@ -33,17 +33,16 @@
 							if(issue.fields.assignee != undefined)
 							{
 								assignee =  "<div class='assignee'>" +
-											"   <img id=\"" + issue.key + "_avatar\" src='" + issue.fields.assignee.avatarUrls["32x32"] + "'>" +
+											"   <img id=\"" + issue.key + "_avatar\" src='" + issue.fields.assignee.avatarUrls["24x24"] + "'>" +
 											"   <div class=\"mdl-tooltip\" data-mdl-for=\"" + issue.key + "_avatar\">" + issue.fields.assignee.name + "</div>" +
 											"</div>";
 							}
-
                             var task = $("<li/>",
                             {
                                 id: issue.key, 
                                 class: "task ",
                                 html:   assignee +
-                                        "<a class='number'>" + issue.key + "</a>" +
+                                        "<img class='issuetypeicon' src='" + issue.fields.issuetype.iconUrl + "'/><a class='number'>" + issue.key + "</a>" +
                                         "<div class=\"mdl-tooltip\" data-mdl-for=\"" + issue.key + "_link\">" + issue.fields.summary + "</div>" +
                                         "<div id=\"" + issue.key + "_link\" class=\"title\">" + issue.fields.summary + "</div>"
                             });

@@ -22,6 +22,11 @@
 					
                     self.presenter.getList(data.id);
                 });
+				
+				$("#sprintList").change(function ()
+                {
+					$(document).trigger( "sprint", {id: $(this).val(), name: $(this).find('option:selected').text(), startDate: $(this).find('option:selected').data("startdate"), endDate: $(this).find('option:selected').data("enddate")});
+                });
             },
             enumerable: false
         },
@@ -31,7 +36,8 @@
             {
                 $.each( data.values, function( key, value )
                 {
-                   $("#sprintList").append("<option data-state='" + value.state + "' value='" + value.id + "'>" + value.name + "</option>")
+                   $("#sprintList").append("<option data-startdate='" +value.startDate + "' data-enddate='" +value.endDate + 
+											"' data-state='" + value.state + "' value='" + value.id + "'>" + value.name + "</option>")
                 });
 
                 var last = $("#sprintList option[data-state='active']");

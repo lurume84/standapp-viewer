@@ -17,35 +17,37 @@
                 this.issues = [];
                 this.resources = {};
 				
-                $(".playlists-list").on("loaded", function (evt, data)
-                {			
-                    self.issues = data.issues;
-                });
-                
-				$(document).on("sprint", function (evt, data)
-                {
-                    self.sprint = data;
-					self.sprint.name = self.sprint.name.replace(/ /g, '_');
-                });
+				self.container = $("<div/>", {class: "burndown_container"});
+				
+				var chart = $("<div/>", {class: "chart", style: ""}).appendTo(self.container);
+				$("<canvas/>", {id: "myChart", style: ""}).appendTo(chart);
+				$("<div/>", {class: "estimate_resources"}).appendTo(self.container);
 				
 				$(document).on("board", function (evt, data)
                 {
                     self.board = data;
                 });
 				
-                $(document).on("login", function ()
-                {             
-                    var menu = $("<div/>", {class: "menu-item", href: "", html: "<i class=\"icon icomoon-arrow-down-right\"></i>Burndown"});
-                    menu.appendTo($(".left-panel-inner .content .main-menu"));
-                    menu.click(function()
-                    {
-                        $.xhrPool.abortAll();
-                        
-                        $(".menu-item").removeClass("active");
-                        $(this).addClass("active");
-                
-                        self.presenter.load(self.board.name, self.sprint.name);
-                    });
+				$(document).on("sprint", function (evt, data)
+                {
+                    self.sprint = data;
+					self.sprint.name = self.sprint.name.replace(/ /g, '_');
+					
+					self.onSprint(self.sprint);
+					
+					self.presenter.load(self.board.name, self.sprint.name);
+                });
+				
+				$(document).on("issues", function (evt, data)
+                {
+                    self.issues = data.issues;
+                });
+				
+				$(document).on("master", function (evt, data)
+                {
+                    self.container.appendTo($(data));
+					
+					self.onSubtasks(self.issues);
                 });
             },
             enumerable: false
@@ -94,7 +96,7 @@
 						dataSet = {
 						  label: data.fields.issuetype.name,
 						  fill: false,
-						  backgroundColor: "#fff",
+						  backgroundColor: "#000",
 						  borderColor: self.getColor(self.chartData.datasets.length),
 						  data: new Array(self.workingDays.length),
 						  cubicInterpolationMode: 'monotone',
@@ -108,7 +110,7 @@
 						dataSetEstimate = {
 						  label: data.fields.issuetype.name + " Estimate",
 						  fill: false,
-						  backgroundColor: "#fff",
+						  backgroundColor: "#000",
 						  borderColor: self.getColor(self.chartData.datasets.length),
 						  data: new Array(self.workingDays.length),
 						  originalData: new Array(self.workingDays.length),
@@ -192,19 +194,26 @@
             enumerable: false
         },
         onSubtasks : {
-            value: function(data)
+            value: function(issues)
             {
                 var self = this;
                 
-                $.each(data.issues, function()
+                $.each(issues, function()
                 {
                     self.onSubtask(this);
                 });
-                
 				
 				var dataSets = self.chartData.datasets.filter(({ label }) => label.slice(label.length-9,label.length) != " Estimate");
 				
 				var todayIndex = self.workingDays.findIndex((element) => element == moment().format('DD/MM/YYYY'));
+				
+				var cnt = 1;
+				
+				while(todayIndex < 0 && cnt < self.workingDays.length)
+				{
+					var date = moment().subtract(cnt++, "days").format('DD/MM/YYYY');
+					todayIndex = self.workingDays.findIndex((element) => element == date);
+				}
 				
 				$.each(dataSets, function(j)
 				{
@@ -272,13 +281,6 @@
             value: function(data)
             {
                 this.settings = data;
-                
-                var self = this;
-                
-                $(".main-view").load("js/burndown/template.html", function()
-                {
-                    self.presenter.getSprint(data.board.id);
-                });
             },
             enumerable: false
         },
@@ -306,59 +308,34 @@
             {
                 var self = this;
                 
-                $.each(data.values, function()
-                {
-                    if(this.state == "active")
-                    {
-                        self.workingDays = self.calcBusinessDays(this.startDate, this.endDate);
+                self.workingDays = self.calcBusinessDays(data.startDate, data.endDate);
                         
-                        var table = $("table.burndown");
-                        
-                        var row = $("<tr/>");
-                        
-                        $("<th/>", {html: "US"}).appendTo(row);
-                        $("<th/>", {html: "Type"}).appendTo(row);
-                        $("<th/>", {html: "Task"}).appendTo(row);
-                        $("<th/>", {html: "Summary"}).appendTo(row);
-                        $("<th/>", {html: "Estimated"}).appendTo(row);
-                        $("<th/>", {html: ""}).appendTo(row);
-                        
-                        for(var i = 0; i < self.workingDays.length; ++i)
-                        {
-                            $("<th/>", {html: self.workingDays[i].substring(0, self.workingDays[i].indexOf("/"))}).appendTo(row);
-                        }
-                        
-                        row.appendTo(table);
-						
-						self.getIssues();
-                        
-                        return false;
-                    }
-                });
+				var table = $("table.burndown");
+				
+				var row = $("<tr/>");
+				
+				$("<th/>", {html: "US"}).appendTo(row);
+				$("<th/>", {html: "Type"}).appendTo(row);
+				$("<th/>", {html: "Task"}).appendTo(row);
+				$("<th/>", {html: "Summary"}).appendTo(row);
+				$("<th/>", {html: "Estimated"}).appendTo(row);
+				$("<th/>", {html: ""}).appendTo(row);
+				
+				for(var i = 0; i < self.workingDays.length; ++i)
+				{
+					$("<th/>", {html: self.workingDays[i].substring(0, self.workingDays[i].indexOf("/"))}).appendTo(row);
+				}
+				
+				row.appendTo(table);
                 
                 self.setupChart();
-            },
-            enumerable: false
-        },
-        getIssues : {
-            value: function()
-            {
-                var self = this;
-                
-                var issues = [];
-                $.each(self.issues, function()
-                {
-                    issues.push(this.key);
-                });
-                
-                self.presenter.getIssues(issues);
             },
             enumerable: false
         },
         showError : {
             value: function(data)
             {
-                showError(data);
+                console.log(data);
             },
             enumerable: false
         },
@@ -408,7 +385,7 @@
 				  },
 				};
 				
-				const ctx = document.getElementById('myChart');
+				const ctx = this.container.find('#myChart')[0];
 				this.myChart = new Chart(ctx, config);
 				
             },
@@ -518,7 +495,7 @@
 				
 				table.appendTo(resourceContainer);
 				
-				resourceContainer.appendTo(".uncommited-table-container .estimate_resources");
+				resourceContainer.appendTo(".burndown_container .estimate_resources");
 				
 				self.updateEstimateResources(name, table);
             },
@@ -529,7 +506,7 @@
             {
 				this.resources = data;
 				
-				//this.presenter.getSettings();
+				this.presenter.getSettings();
             },
             enumerable: false
         },

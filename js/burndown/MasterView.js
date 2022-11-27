@@ -41,17 +41,13 @@
             {
 				var user = this.createUser(g_master);
 				
-				var burndown_path = credentials.server + "/plugins/servlet/gadgets/ifr?country=US&lang=en&view=default&up_isConfigured=true&up_rapidViewId=" + boardId + "&up_showRapidViewName=false&" + 
-									"up_sprintId=auto&up_refresh=15&url=" + 
-									escape(credentials.server) + 
-									"%2Frest%2Fgadgets%2F1.0%2Fg%2Fcom.pyxis.greenhopper.jira%3Agreenhopper-gadget-sprint-burndown%2Fgadgets%2Fgreenhopper-sprint-burndown.xml";
-
 				var height = Math.min(($("body").width() - $("#right_panel").width()) * 0.50, $("body").height() * 0.9);
 				
 				var width =  height * 1.7;
 				
 				var burndown = $("<div/>", {class: "burndown_container", style: "width: " + width + "px;"}).appendTo(user.children(".worklog"));
-				$("<iframe/>", {src: burndown_path, scrolling: "no", frameborder: "no", style: "width: " + width + "px;height: " + height + "px;"}).appendTo(burndown);
+				
+				$(document).trigger("master", burndown);
             },
             enumerable: false
         },

@@ -3,7 +3,7 @@
     function BurndownPresenter(Context)
     {
         this.interactor = Context.getBurndownInteractor();
-        //this.interactorSettings = Context.getSettingsInteractor();
+        this.interactorSettings = Context.getSettingsInteractor();
         this.interactorBoard = Context.getBoardInteractor();
        
         this.view = Context.getBurndownView(this);

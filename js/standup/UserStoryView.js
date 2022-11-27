@@ -19,7 +19,7 @@
                     self.board = data;
                 });
 
-                $("#sprintList").change(function ()
+                $(document).on("sprint", function (evt, data)
                 {
 					$("#content").html("");
 					$("#standup > #right_panel ul.users").html("");
@@ -27,7 +27,7 @@
 					$("#loading").show();
 					$("#start_standup").hide();
 					
-                    self.presenter.getList(self.board, $(this).val());
+                    self.presenter.getList(self.board, data.id);
                 });
             },
             enumerable: false
@@ -37,6 +37,8 @@
             value: function(board, data)
             {
                 var completed_user_stories = [];
+
+				$(document).trigger("issues", data);
 
                 $.each( data.issues, function( key, issue )
                 {	
