@@ -1,6 +1,6 @@
 .burndown_container
 {
-	background-color: 000;
+	background-color: rgba(0,0,0,0.8);
 }
 
 .burndown_container .assigned

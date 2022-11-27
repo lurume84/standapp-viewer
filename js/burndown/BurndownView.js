@@ -367,6 +367,8 @@
 					  intersect: false
 					},
 					scales: {
+						xAxes: [{gridLines: { color: "#9e9e9e" }}],
+						yAxes: [{gridLines: { color: "#9e9e9e" }}],
 					  x: {
 						display: true,
 						title: {
