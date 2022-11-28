@@ -56,7 +56,7 @@
             value: function(data)
             {
                 var self = this;
-                
+               
                 if(data.fields.timetracking.originalEstimateSeconds > 0)
                 {
                     var table = $("table.burndown");
@@ -96,7 +96,7 @@
 						dataSet = {
 						  label: data.fields.issuetype.name,
 						  fill: false,
-						  backgroundColor: "#000",
+						  backgroundColor: "#fff",
 						  borderColor: self.getColor(self.chartData.datasets.length),
 						  data: new Array(self.workingDays.length),
 						  cubicInterpolationMode: 'monotone',
@@ -110,7 +110,7 @@
 						dataSetEstimate = {
 						  label: data.fields.issuetype.name + " Estimate",
 						  fill: false,
-						  backgroundColor: "#000",
+						  backgroundColor: "#fff",
 						  borderColor: self.getColor(self.chartData.datasets.length),
 						  data: new Array(self.workingDays.length),
 						  originalData: new Array(self.workingDays.length),
@@ -367,8 +367,8 @@
 					  intersect: false
 					},
 					scales: {
-						xAxes: [{gridLines: { color: "#9e9e9e" }}],
-						yAxes: [{gridLines: { color: "#9e9e9e" }}],
+						// xAxes: [{gridLines: { color: "#9e9e9e" }}],
+						// yAxes: [{gridLines: { color: "#9e9e9e" }}],
 					  x: {
 						display: true,
 						title: {
